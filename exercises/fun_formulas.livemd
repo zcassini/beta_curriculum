@@ -32,10 +32,8 @@ You can calculate the percentage with $\frac{actual\ value}{total\ value}\times1
 
 For example if we complete `7` out of `10` items, we would be `70.0%` complete.
 
-<!-- livebook:{"force_markdown":true} -->
-
 ```elixir
-7 / 10 # 70.0
+7 / 10 * 100
 ```
 
 Use arithmetic operators to determine the **percentage** given we have completed `12` out of `42` items.
@@ -142,6 +140,12 @@ Earlier we calculated $c^2$ for pythagoream theorum. Given $c^2$ is `116` determ
 ```elixir
 c_squared = 116
 :math.sqrt(c_squared)
+```
+
+Alternatively, we can find the square root of a number using the power of `0.5`.
+
+```elixir
+116 ** 0.5
 ```
 
 </details>
