@@ -59,7 +59,7 @@ In the Elixir cell below, create a string `"Hello, world!"`. This is a rite of p
 programmer.
 
 ```elixir
-
+"Hello, world!"
 ```
 
 ## String Operators
@@ -98,7 +98,7 @@ Replace `nil` with your answer.
 </details>
 
 ```elixir
-
+"Hi " <> "Peter"
 ```
 
 ### String Interpolation
@@ -138,7 +138,7 @@ In the Elixir cell below, use **string interpolation** to say `I have #{X - 1} c
 </details>
 
 ```elixir
-answer = nil
+"I have #{42 - 1} classmates."
 ```
 
 ## Commit Your Progress
