@@ -76,10 +76,12 @@ in Elixir are unbounded, meaning they have no maximum size.
 Contrast that with a language like JavaScript which has a maximum safe integer size of `9007199254740991`.
 Elixir makes that look tiny!
 
-<!-- livebook:{"attrs":{"code":"biggest_integer = 1","source":"Kino.Markdown.new(~s(\ninteger: #{biggest_integer}\\n\ndigits: #{biggest_integer |> Integer.digits() |> Enum.count()}\n))","title":"Biggest Integer Visual"},"kind":"Elixir.Visual","livebook_object":"smart_cell"} -->
+<!-- livebook:{"attrs":{"code":"biggest_integer = 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111","source":"Kino.Markdown.new(~s(\ninteger: #{biggest_integer}\\n\ndigits: #{biggest_integer |> Integer.digits() |> Enum.count()}\n))","title":true},"kind":"Elixir.Visual","livebook_object":"smart_cell"} -->
 
 ```elixir
-biggest_integer = 1
+biggest_integer =
+  111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111_111
+
 Kino.Markdown.new(~s(
 integer: #{biggest_integer}\n
 digits: #{biggest_integer |> Integer.digits() |> Enum.count()}
@@ -145,10 +147,10 @@ For example, you might want to represent a progress bar as a percentage.
 In the Elixir cell below, try changing the float `percentage` to any float between `0.0` and `100.0`
 and see how the loading bar changes! Replace `50.0` with your answer and reevaluate the cell.
 
-<!-- livebook:{"attrs":{"code":"percentage = 50.0","source":"Kino.Markdown.new(~s(\n  <div style=\\\"height: 20px; width: 100%; background-color: grey\\\">\n  <div style=\\\"height: 20px; width: #{percentage}%; background-color: green; color: white;\\\">#{percentage}%</div>\n  </div>\n))","title":"Loading Bar Visual"},"kind":"Elixir.Visual","livebook_object":"smart_cell"} -->
+<!-- livebook:{"attrs":{"code":"percentage = 41","source":"Kino.Markdown.new(~s(\n  <div style=\\\"height: 20px; width: 100%; background-color: grey\\\">\n  <div style=\\\"height: 20px; width: #{percentage}%; background-color: green; color: white;\\\">#{percentage}%</div>\n  </div>\n))","title":true},"kind":"Elixir.Visual","livebook_object":"smart_cell"} -->
 
 ```elixir
-percentage = 50.0
+percentage = 41
 Kino.Markdown.new(~s(
   <div style=\"height: 20px; width: 100%; background-color: grey\">
   <div style=\"height: 20px; width: #{percentage}%; background-color: green; color: white;\">#{percentage}%</div>
@@ -194,7 +196,7 @@ provide utilities for working with money.
 In the Elixir cell below, enter some floating-point addition that returns an unexpected result.
 
 ```elixir
-
+3.3 - 3.1
 ```
 
 ## Arithmetic Operators
@@ -260,7 +262,7 @@ to write code like this, but it's useful to know you can.
 In the Elixir cell below, add two massive numbers together that you couldn't do in your head.
 
 ```elixir
-
+99_999_999_999_999_999_999_999_999_999_999_999_999 + 424_242_424_242_424_242_424_242_424
 ```
 
 ## Subtraction
@@ -298,7 +300,7 @@ Subtracting a negative is the same as adding a positive.
 In the Elixir cell below, subtract two massive numbers together.
 
 ```elixir
-
+4_242_424_242_424_242_424_424_242 - 1_212_212_122_112_212_111.777
 ```
 
 ## Multiplication
@@ -327,7 +329,7 @@ You can multiply integers and floats both positive and negative in combination, 
 In the Elixir cell below, multiply two massive numbers together.
 
 ```elixir
-
+888_888_888_888_888_888_888_888_888 * 99_999_999_999_999_999_999_999_999_999_999_999_999
 ```
 
 ## Division
@@ -369,13 +371,13 @@ In the Elixir cell below, divide `223` by `71` using `/` to get a nice slice of 
 should be close to `3.14`.
 
 ```elixir
-
+223 / 71
 ```
 
 Divide `100` by `3` using `div`. Your answer should be `33`.
 
 ```elixir
-
+div(100, 3)
 ```
 
 ## Exponents
@@ -411,7 +413,7 @@ In the Elixir cell below, Use the `**` operator to determine `10` to the power o
 </details>
 
 ```elixir
-
+10 ** 214
 ```
 
 ## BEDMAS
@@ -487,7 +489,7 @@ Use brackets `()` to alter the return value of the expression below to be `200` 
 </details>
 
 ```elixir
-10 + 10 * 10
+(10 + 10) * 10
 ```
 
 ## Remainder
@@ -580,7 +582,7 @@ rem(10, 3)
 Enter your solution below.
 
 ```elixir
-
+rem(10, 3)
 ```
 
 ## Commit Your Progress
