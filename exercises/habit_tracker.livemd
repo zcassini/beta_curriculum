@@ -52,7 +52,9 @@ small = 5
 Enter your solution below.
 
 ```elixir
-
+small = 5
+medium = 20
+large = 30
 ```
 
 ## Small, Medium, Large
@@ -82,7 +84,7 @@ small + medium + large
 Enter your answer in the code cell below.
 
 ```elixir
-
+large + medium + small
 ```
 
 ## Multiples
@@ -101,7 +103,7 @@ small * 10 + medium * 5 + large * 3
 Enter your answer below.
 
 ```elixir
-
+10 * small + 5 * medium + 3 * large
 ```
 
 ## Progress Bar
@@ -132,7 +134,9 @@ points / goal
 Enter your answer below.
 
 ```elixir
-
+goal = 40
+points = small + medium
+points / goal * 100
 ```
 
 ## Penalties and Rewards
@@ -159,7 +163,7 @@ small * 1.6 * 3 + medium * 2 + large * 2 * 0.5
 Enter your answer below.
 
 ```elixir
-
+3 * small * 1.6 + 2 * medium + 2 * large * 0.5
 ```
 
 ## Bonus: Add Your Own Feature
@@ -168,7 +172,10 @@ Add your own feature to the habit tracking app. Use comments to describe your fe
 how it would affect calculating the total score and/or the total percentage of completed habits.
 
 ```elixir
-
+# habits done on consequtive days get more points
+early_multiplier = 1.6
+consecutive_multiplier = 1.2
+3 * small * early_multiplier * consecutive_multiplier
 ```
 
 ## Commit Your Progress
