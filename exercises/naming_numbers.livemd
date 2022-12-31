@@ -71,7 +71,9 @@ naming_numbers.(1)
 Enter your solution below.
 
 ```elixir
-
+number_strings = %{0 => "zero", 1 => "one", 2 => "two", 3 => "three", 4 => "four"}
+naming_numbers = &number_strings[&1]
+Enum.random(1..4) |> naming_numbers.()
 ```
 
 ## Numbering Names
@@ -168,7 +170,17 @@ flowchart
 </details>
 
 ```elixir
+numbering_names = fn n ->
+  case String.downcase(n) do
+    "zero" -> 0
+    "one" -> 1
+    "two" -> 2
+    "three" -> 3
+    "four" -> 4
+  end
+end
 
+~w(zero one two three four) |> Enum.random() |> numbering_names.()
 ```
 
 ## Commit Your Progress
