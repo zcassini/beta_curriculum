@@ -187,7 +187,10 @@ end
 Enter your solution below.
 
 ```elixir
-
+defmodule Coordinate do
+  @enforce_keys [:x, :y]
+  defstruct @enforce_keys
+end
 ```
 
 ## Module Functions
@@ -262,25 +265,43 @@ end
 Enter your solution below.
 
 ```elixir
+defmodule Hero do
+  defstruct [:name, :secret_identity]
 
+  def greeting(hero) do
+    "I am #{hero.name}."
+  end
+
+  def reveal(hero) do
+    "I am #{hero.secret_identity}."
+  end
+end
 ```
 
 When finished create bind a variable `hero` to an instance of your `Hero` struct.
 
 ```elixir
+hero = %Hero{
+  name: "Spider-Man",
+  secret_identity: "Peter Parker"
+}
 
+# "I am Peter Parker."
+Hero.reveal(hero)
 ```
 
 Use the `Hero.greeting/1` function on `hero` to ensure it works correctly.
 
 ```elixir
-
+# "I am Spider-Man."
+Hero.greeting(hero)
 ```
 
 Use the `Hero.reveal/1` function on `hero` to ensure it works correctly.
 
 ```elixir
-
+# "I am Spider-Man."
+Hero.greeting(hero)
 ```
 
 ## Updating Structs
