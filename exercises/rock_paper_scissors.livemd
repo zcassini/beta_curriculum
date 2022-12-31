@@ -53,7 +53,13 @@ Then, return the winning choice of either `:rock`, `:paper`, or `:scissors` that
 Enter your solution below.
 
 ```elixir
+player_choice = Enum.random(~w(rock paper scissors)a)
 
+case player_choice do
+  :rock -> :paper
+  :paper -> :scissors
+  :scissors -> :rock
+end
 ```
 
 ## Create Two Player Rock Paper Scissors
@@ -106,7 +112,22 @@ Bind a `player1_choice` and `player2_choice` variable to `:rock`, `:paper`, or `
 Enter your solution below.
 
 ```elixir
+choices = ~w(rock paper scissors)a
+player1_choice = Enum.random(choices)
+player2_choice = Enum.random(choices)
+draw = "Draw"
+one = "Player 1 wins"
+two = "Player 2 wins"
 
+case {player1_choice, player2_choice} do
+  {:rock, :paper} -> two
+  {:rock, :scissors} -> one
+  {:paper, :rock} -> one
+  {:paper, :scissors} -> two
+  {:scissors, :rock} -> two
+  {:scissors, :paper} -> one
+  {_, _} -> draw
+end
 ```
 
 ## Commit Your Progress
