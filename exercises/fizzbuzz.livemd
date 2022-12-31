@@ -56,7 +56,7 @@ FizzBuzz.run(1..15)
 
 Enter your solution below.
 
-<!-- livebook:{"attrs":{"source":"YouTube.new(\"https://www.youtube.com/watch?v=QPZ0pIK_wsc&ab_channel=TomScott\")","title":"FizzBuzz"},"kind":"Elixir.HiddenCell","livebook_object":"smart_cell"} -->
+<!-- livebook:{"attrs":{"source":"YouTube.new(\"https://www.youtube.com/watch?v=QPZ0pIK_wsc&ab_channel=TomScott\")","title":"FizzBuzz"},"chunks":null,"kind":"Elixir.HiddenCell","livebook_object":"smart_cell"} -->
 
 ```elixir
 YouTube.new("https://www.youtube.com/watch?v=QPZ0pIK_wsc&ab_channel=TomScott")
@@ -76,6 +76,14 @@ defmodule FizzBuzz do
     ["buzz", 11, "fizz", 13, 14, "fizzbuzz"]
   """
   def run(range) do
+    Enum.map(range, fn each ->
+      cond do
+        rem(each, 3) == 0 and rem(each, 5) == 0 -> "fizzbuzz"
+        rem(each, 5) == 0 -> "buzz"
+        rem(each, 3) == 0 -> "fizz"
+        true -> each
+      end
+    end)
   end
 end
 ```
