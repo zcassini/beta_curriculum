@@ -82,7 +82,18 @@ defmodule RockPaperScissorsLizardSpock do
     iex> RockPaperScissorsLizardSpock.beats?(:rock, :spock)
     false
   """
-  def beats?(guess1, guess2) do
+  defp beats?(guess1, guess2) do
+    {guess1, guess2} in [
+      {:rock, :scissors},
+      {:paper, :rock},
+      {:scissors, :paper},
+      {:rock, :lizard},
+      {:spock, :scissors},
+      {:scissors, :lizard},
+      {:lizard, :paper},
+      {:paper, :spock},
+      {:spock, :rock}
+    ]
   end
 
   @doc """
@@ -97,8 +108,15 @@ defmodule RockPaperScissorsLizardSpock do
     "Player 1 Wins!"
   """
   def play(player1, player2) do
+    cond do
+      beats?(player1, player2) -> "Player 2 Wins!"
+      beats?(player2, player1) -> "Player 1 Wins!"
+      true -> "Draw"
+    end
   end
 end
+
+RockPaperScissorsLizardSpock.play(:spock, :spock)
 ```
 
 ## Commit Your Progress
