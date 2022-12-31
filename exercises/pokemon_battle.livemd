@@ -85,6 +85,8 @@ defmodule Pokemon do
     iex> %Pokemon{name: "Charmander", type: :fire, speed: 20}
     %Pokemon{name: "Charmander", type: :fire, health: 20, attack: 5, speed: 20}
   """
+  @enforce_keys [:name, :type]
+  defstruct @enforce_keys ++ [speed: 20, health: 20, attack: 5]
 
   @doc """
   subtract the attack damage of an attacker from the defender's health.
@@ -114,6 +116,20 @@ defmodule Pokemon do
     %Pokemon{name: "Bulbasaur", type: :grass, health: 10, attack: 5, speed: 20}
   """
   def attack(attacker, defender) do
+    attack_damage = attacker.attack * attack_multiplier(attacker, defender)
+    %Pokemon{defender | health: defender.health - attack_damage}
+  end
+
+  def attack_multiplier(attacker, defender) do
+    case {attacker.type, defender.type} do
+      {:fire, :grass} -> 2
+      {:grass, :water} -> 2
+      {:water, :fire} -> 2
+      {:fire, :water} -> 0.5
+      {:grass, :fire} -> 0.5
+      {:water, :grass} -> 0.5
+      _ -> 1
+    end
   end
 end
 ```
@@ -166,7 +182,11 @@ Pokemon.attack(charmander, bulbasaur)
 Enter your solution below.
 
 ```elixir
+charmander = %Pokemon{name: "Charmander", type: :fire}
+bulbasaur = %Pokemon{name: "Bulbasar", type: :grass}
+squirtle = %Pokemon{name: "Squirtle", type: :water}
 
+Pokemon.attack(charmander, bulbasaur)
 ```
 
 ## Commit Your Progress
