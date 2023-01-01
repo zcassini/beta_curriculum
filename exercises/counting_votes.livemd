@@ -79,6 +79,7 @@ defmodule Votes do
     0
   """
   def count(votes, vote) do
+    Enum.count(votes, &(&1 == vote))
   end
 end
 ```
@@ -109,18 +110,24 @@ style B1 fill:lightblue
 There are `3` dogs, `2` cats, and `1` bird.
 
 ```elixir
-defmodule Votes do
+defmodule Votes.Tally do
   @doc """
   Determine the number of votes for each option received.
 
   ## Examples
 
-    iex> Votes.tally([:dog, :dog, :cat, :cat, :cat, :bird])
+    iex> Votes.Tally.tally([:dog, :dog, :cat, :cat, :cat, :bird])
     %{dog: 2, cat: 3, bird: 1}
   """
   def tally(votes) do
+    Enum.uniq(votes)
+    |> Enum.reduce(%{}, fn each, acc ->
+      Map.put(acc, each, Enum.count(votes, &(&1 == each)))
+    end)
   end
 end
+
+Votes.Tally.tally([:dog, :dog, :cat, :cat, :cat, :bird])
 ```
 
 ## Commit Your Progress
