@@ -38,7 +38,7 @@ Integer.digits(123)
 In the Elixir cell below, convert the integer `4389` into a list of digits.
 
 ```elixir
-
+Integer.digits(4389)
 ```
 
 ### Undigits
@@ -119,7 +119,7 @@ Now your string is an enumerable list of characters.
 In the Elixir cell below, convert the string `"Hello, world!"` into a list of single characters.
 
 ```elixir
-
+String.split("Hello, world!", "", trim: true)
 ```
 
 ### Joining Strings
@@ -189,7 +189,9 @@ You might also use the pipe operator.
 Enter your solution below.
 
 ```elixir
-
+String.split("hello", "", trim: true)
+|> Enum.map(&(&1 <> &1))
+|> Enum.join("")
 ```
 
 ## Commit Your Progress
