@@ -41,7 +41,7 @@ list1 = [0, nil, 2, 3, nil]
 list2 = [:a, :b, :c, :d, :e]
 
 ReplaceNils.replace(list1, list2)
-[0, :b, 2, 3, :e]
+# [0, :b, 2, 3, :e]
 ```
 
 You can assume the lists are of the same length.
@@ -50,10 +50,19 @@ Implement the `ReplaceNils` module as below:
 
 ```elixir
 defmodule ReplaceNils do
-  def replace(input1, input2) do
-    nil
+  # def replace(input1, input2) do
+  #   for {one, two} <- Enum.zip(input1, input2),
+  #   into: [],
+  #   do: if one == nil, do: two, else: one
+  # end
+  def replace(a, b) do
+    Enum.zip_reduce(a, b, [], fn x, y, acc -> acc ++ [x || y] end)
   end
 end
+
+l1 = [1, 2, 3, nil, nil, 6, 7, nil, 9, 10]
+l2 = [:a, :b, :c, :d, :e, :f, :g, :h, :i, :j]
+ReplaceNils.replace(l1, l2)
 ```
 
 Here are some additional test data to think about:
