@@ -56,7 +56,22 @@ end
 Enter your solution below.
 
 ```elixir
+# defmodule Animal do
+#   @enforce_keys [:name, :animal_type, :age]
 
+#   names = ["Clifford", "Zoboomafoo", "Leonardo"]
+#   animal_types = ["dog", "lemur", "turtle"]
+#   ages = 1..14
+
+#   defstruct name: Enum.random(names),
+#             animal_type: Enum.random(animal_types),
+#             age: Enum.random(ages)
+# end
+names = ["Clifford", "Zoboomafoo", "Leonardo"]
+animal_types = ["dog", "lemur", "turtle"]
+ages = 1..14
+
+for name <- names, type <- animal_types, age <- ages, do: %{name: name, type: type, age: age}
 ```
 
 ## Commit Your Progress
