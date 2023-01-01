@@ -66,6 +66,8 @@ defmodule Anagram do
     true
   """
   def anagram?(string1, string2) do
+    sorted = &(String.split(&1, "", trim: true) |> Enum.sort())
+    sorted.(string1) == sorted.(string2)
   end
 
   @doc """
@@ -83,6 +85,8 @@ defmodule Anagram do
     []
   """
   def filter_anagrams(word_list, anagram) do
+    word_list
+    |> Enum.filter(&anagram?(&1, anagram))
   end
 end
 ```
@@ -96,22 +100,26 @@ This is a HARD challenge. Move on to regular exercises before attempting this.
 </div>
 
 ```elixir
-defmodule Anagram do
+defmodule AnagramHard do
   @doc """
   Return a list of all string permutations to solve for all anagrams.
 
   ## Examples
 
-    iex> Anagram.solve("a")
+    iex> AnagramHard.solve("a")
     ["a"]
 
-    iex> Anagram.solve("ab")
+    iex> AnagramHard.solve("ab")
     ["ab", "ba"]
 
-    iex> Anagram.solve("abc")
+    iex> AnagramHard.solve("abc")
     ["abc", "acb", "bac", "bca", "cab", "cba"]
   """
   def solve(string) do
+    split = String.split(string)
+
+    for x <- split do
+    end
   end
 end
 ```
